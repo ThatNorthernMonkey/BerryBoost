@@ -17,13 +17,11 @@ namespace BerryBoost
     [Mod]
     public class BerryBoost : DiskResource
     {
-
         private bool Boosted { get; set; }
         private int TimeToStartTheBoost { get; set; }
         private int TimeToStopTheBoost { get; set; }
 
         public static Farmer Player => StaticGameContext.WrappedGame.Player;
-
 
         [Subscribe]
         public void InitializeCallback(InitializeEvent @event)
@@ -35,27 +33,20 @@ namespace BerryBoost
         public void OnConsumeABerry(PlayerEatObjectEvent @event)
         {
             var foodEaten = @event.O;
-            var player = @event.Root.Player;
             var timeFoodConsumed = @event.Root.TimeOfDay;
-            //Console.WriteLine("Start Speed: " + Player.AddedSpeed.ToString());
             //Time represented as int, e.g., 6:00 is 600
-            //Console.WriteLine(timeFoodConsumed);
-            //Console.WriteLine(foodEaten.Name);
-
 
             if (foodEaten.Name == "Strawberry" || foodEaten.Name == "Cranberries" || foodEaten.Name == "Blueberry")
-            {             
+            {
                 this.Boosted = true;
                 this.TimeToStartTheBoost = @event.Root.TimeOfDay;
-                this.TimeToStopTheBoost = @event.Root.TimeOfDay + 180;
-                //Console.WriteLine("New Speed: " + Player.AddedSpeed.ToString());
-                //Console.WriteLine("Time to stop boost: " + this.TimeToStopTheBoost);              
+                this.TimeToStopTheBoost = @event.Root.TimeOfDay + 300;
             }
         }
 
         [Subscribe]
         public void UpdateCallback(PreUpdateEvent @event)
-        {  
+        {
             if (this.Boosted)
             {
                 if (Player.Running)
@@ -75,4 +66,3 @@ namespace BerryBoost
         }
     }
 }
-
