@@ -1,0 +1,17 @@
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\BerryBoost.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\BerryBoost.pdb
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Microsoft.Xna.Framework.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Microsoft.Xna.Framework.Game.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Microsoft.Xna.Framework.Xact.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Newtonsoft.Json.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\StormLoader.exe
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Mono.Cecil.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Castle.Core.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\xTile.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Newtonsoft.Json.xml
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\StormLoader.pdb
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\bin\Debug\Castle.Core.xml
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\obj\Debug\BerryBoost.csprojResolveAssemblyReference.cache
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\obj\Debug\BerryBoost.dll
+c:\users\kiada\documents\visual studio 2015\Projects\BerryBoost\BerryBoost\obj\Debug\BerryBoost.pdb
