@@ -25,7 +25,7 @@ namespace BerryBoost
         private int TimeToStopFatigue { get; set; }
         private bool IsFatigued { get; set; }
 
-        public static Farmer Player => StaticGameContext.WrappedGame.Player;
+        
 
         [Subscribe]
         public void InitializeCallback(InitializeEvent @event)
@@ -60,81 +60,81 @@ namespace BerryBoost
 
             if (foodEaten.Name == "Strawberry" || foodEaten.Name == "Cranberries" || foodEaten.Name == "Blueberry")
             {
-                this.IsFatigued = false;
-                this.BerryBoosted = true;
-                this.TimeToStartTheBoost = @event.Root.TimeOfDay;
-                this.TimeToStopTheBoost = @event.Root.TimeOfDay + 300;
+                IsFatigued = false;
+                BerryBoosted = true;
+                TimeToStartTheBoost = @event.Root.TimeOfDay;
+                TimeToStopTheBoost = @event.Root.TimeOfDay + 300; //300
             }
 
             if (foodEaten.Name == "Joja Cola" && ModConfig.EnableJojaCola)
             {
-                this.IsFatigued = false;
-                this.JojaBoosted = true;
-                this.TimeToStartTheBoost = @event.Root.TimeOfDay;
-                this.TimeToStopTheBoost = @event.Root.TimeOfDay + 400;
+                IsFatigued = false;
+                JojaBoosted = true;
+                TimeToStartTheBoost = @event.Root.TimeOfDay;
+                TimeToStopTheBoost = @event.Root.TimeOfDay + 400; //400
             }
         }
 
         [Subscribe]
         public void UpdateCallback(PreUpdateEvent @event)
         {
-            Console.WriteLine(Player.AddedSpeed);
-
-            if (this.JojaBoosted)
+            
+            var player = @event.Root.Player;
+            if (JojaBoosted)
             {
-                if (Player.Running)
-                    Player.AddedSpeed = 3;
+                if (player.Running)
+                    player.AddedSpeed = 3;
                 else
-                    Player.AddedSpeed = 3;
+                    player.AddedSpeed = 3;
 
                 if (@event.Root.TimeOfDay >= this.TimeToStopTheBoost || @event.Root.TimeOfDay < this.TimeToStartTheBoost)
                 {
-                    if (Player.Running)
-                        Player.AddedSpeed = 0;
+                    if (player.Running)
+                        player.AddedSpeed = 0;
                     else
-                        Player.AddedSpeed = 0;
+                        player.AddedSpeed = 0;
 
-                    this.JojaBoosted = false;
-                    this.IsFatigued = true;
-                    this.TimeToStartFatigue = @event.Root.TimeOfDay;
-                    this.TimeToStopFatigue = @event.Root.TimeOfDay + 100;
+                    JojaBoosted = false;
+                    IsFatigued = true;
+                    TimeToStartFatigue = @event.Root.TimeOfDay;
+                    TimeToStopFatigue = @event.Root.TimeOfDay + 100; //100
                 }
             }
         
             // Prioritise Joja as it is faster
-            if (this.BerryBoosted && !this.JojaBoosted)
+            if (BerryBoosted && !JojaBoosted)
             {
-                if (Player.Running)
-                    Player.AddedSpeed = 2;
+                if (player.Running)
+                    player.AddedSpeed = 2;
                 else
-                    Player.AddedSpeed = 2;
+                    player.AddedSpeed = 2;
 
                 if (@event.Root.TimeOfDay >= this.TimeToStopTheBoost || @event.Root.TimeOfDay < this.TimeToStartTheBoost)
                 {
-                    if (Player.Running)
-                        Player.AddedSpeed = 0;
+                    if (player.Running)
+                        player.AddedSpeed = 0;
                     else
-                        Player.AddedSpeed = 0;
-                    this.BerryBoosted = false;
+                        player.AddedSpeed = 0;
+                    BerryBoosted = false;
                 }
             }
 
             // Deal with fatigue
-            if (this.IsFatigued)
+            if (IsFatigued)
             {
-                if (Player.Running)
-                    Player.AddedSpeed = -1;
+                if (player.Running)
+                    player.AddedSpeed = -1;
                 else
-                    Player.AddedSpeed = -1;
+                    player.AddedSpeed = -1;
 
                 if (@event.Root.TimeOfDay >= this.TimeToStopFatigue || @event.Root.TimeOfDay < this.TimeToStartFatigue)
                 {
-                    if (Player.Running)
-                        Player.AddedSpeed = 0;
+                    if (player.Running)
+                        player.AddedSpeed = 0;
                     else
-                        Player.AddedSpeed = 0;
+                        player.AddedSpeed = 0;
 
-                      this.IsFatigued = false;
+                      IsFatigued = false;
                 }
             }
         }
